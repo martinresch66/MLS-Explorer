@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLS Explorer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="../style/styleMLS.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar navbar-dark sticky-top mls-nav">
+    <div class="container">
+        <a class="navbar-brand mls-brand" href="#">MLS Explorer</a>
+        <ul class="nav nav-pills" id="tabs">
+            <li class="nav-item"><button class="nav-link active" data-vista="equipos">Equipos</button></li>
+            <li class="nav-item"><button class="nav-link" data-vista="jugadores">Jugadores</button></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="container">
+        <h1>Todo sobre la MLS,<br>equipo por equipo.</h1>
+        <p>Consulta clubes, plantillas y jugadores. Filtra por nacionalidad y posición.</p>
+    </div>
+</header>
+
+<main class="container pb-5">
+
+    <!-- VISTA EQUIPOS -->
+    <section id="vistaEquipos">
+        <div class="panel mb-4">
+            <label for="filtroEquipo" class="form-label">Buscar equipo</label>
+            <input id="filtroEquipo" class="form-control" placeholder="Ej. Inter Miami">
+        </div>
+        <div id="gridEquipos" class="row row-cols-2 row-cols-md-4 row-cols-lg-5 g-3"></div>
+    </section>
+
+    <!-- VISTA JUGADORES -->
+    <section id="vistaJugadores" class="d-none">
+        <div class="panel mb-4">
+            <div class="row g-3 align-items-end">
+                <div class="col-md-4">
+                    <label for="inputBuscador" class="form-label">Nombre del jugador</label>
+                    <div class="input-group">
+                        <input id="inputBuscador" class="form-control" placeholder="Ej. Messi">
+                        <button id="btnBuscar" class="btn btn-mls">Buscar</button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label for="selectEquipo" class="form-label">Plantilla de un equipo</label>
+                    <select id="selectEquipo" class="form-select"><option value="">Elegir equipo…</option></select>
+                </div>
+                <div class="col-md-2">
+                    <label for="selectPais" class="form-label">Nacionalidad</label>
+                    <select id="selectPais" class="form-select"><option value="">Todas</option></select>
+                </div>
+                <div class="col-md-2">
+                    <label for="selectPos" class="form-label">Posición</label>
+                    <select id="selectPos" class="form-select"><option value="">Todas</option></select>
+                </div>
+                <div class="col-md-1 d-grid">
+                    <button id="btnTodos" class="btn btn-outline-light" title="Carga las plantillas de todos los equipos (tarda unos minutos la primera vez)">Toda la liga</button>
+                </div>
+            </div>
+        </div>
+
+        <p id="estado" class="estado"></p>
+        <div id="spinnerCarga" class="text-center my-5 d-none">
+            <div class="spinner-border text-danger" role="status"><span class="visually-hidden">Cargando...</span></div>
+        </div>
+        <div id="contenedorTarjetas" class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3"></div>
+    </section>
+</main>
+
+<!-- Modal de detalle -->
+<div class="modal fade" id="modalDetalle" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content mls-modal">
+            <div class="modal-header border-0">
+                <h2 class="modal-title" id="modalTitulo"></h2>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body" id="modalCuerpo"></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/ej3.js"></script>
+</body>
+</html>

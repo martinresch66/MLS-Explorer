@@ -1,0 +1,53 @@
+:root{
+    --noche:#0d1b2a; --panel:#14273b; --linea:#25405c;
+    --tiza:#eef2f6; --apagado:#9fb2c6; --rojo:#e63946;
+}
+body{background:var(--noche);color:var(--tiza);font-family:'Barlow',sans-serif}
+h1,h2,h3,h5,.mls-brand{font-family:'Barlow Condensed',sans-serif;font-weight:700}
+.mls-nav{background:rgba(13,27,42,.95);border-bottom:1px solid var(--linea)}
+.mls-brand{font-size:1.6rem;letter-spacing:.5px}
+.nav-pills .nav-link{color:var(--apagado);font-weight:600}
+.nav-pills .nav-link.active{background:var(--rojo);color:#fff}
+.hero{padding:3.5rem 0 2.5rem;border-bottom:1px solid var(--linea);margin-bottom:2rem;
+    background:repeating-linear-gradient(90deg,transparent 0 80px,rgba(255,255,255,.025) 80px 160px)}
+.hero h1{font-size:clamp(2.4rem,6vw,4.2rem);line-height:1;margin-bottom:1rem}
+.hero p{color:var(--apagado);max-width:46ch;margin:0}
+.panel{background:var(--panel);border:1px solid var(--linea);border-radius:10px;padding:1.25rem}
+.form-label{color:var(--apagado);font-size:.85rem;font-weight:600}
+.form-control,.form-select{background-color:var(--noche);color:var(--tiza);border-color:var(--linea)}
+.form-control:focus,.form-select:focus{background-color:var(--noche);color:var(--tiza);border-color:var(--rojo);box-shadow:0 0 0 .2rem rgba(230,57,70,.25)}
+.form-control::placeholder{color:#62788f}
+.btn-mls{background:var(--rojo);color:#fff;font-weight:600;border:0}
+.btn-mls:hover{background:#c92f3b;color:#fff}
+.estado{color:var(--apagado);min-height:1.5rem}
+
+/* Tarjetas de equipo: el escudo es protagonista */
+.team-card{background:var(--panel);border:1px solid var(--linea);border-radius:10px;padding:1.25rem 1rem;
+    text-align:center;cursor:pointer;height:100%;transition:border-color .15s,transform .15s}
+.team-card:hover,.team-card:focus-visible{border-color:var(--rojo);transform:translateY(-3px);outline:none}
+.team-card img{width:84px;height:84px;object-fit:contain;margin-bottom:.75rem}
+.team-card h3{font-size:1.15rem;margin:0}
+.team-card small{color:var(--apagado)}
+
+/* Tarjetas de jugador */
+.player-card{background:var(--panel);border:1px solid var(--linea);border-radius:10px;overflow:hidden;
+    cursor:pointer;height:100%;transition:border-color .15s}
+.player-card:hover,.player-card:focus-visible{border-color:var(--rojo);outline:none}
+.player-card .foto{aspect-ratio:1/1;background:linear-gradient(180deg,#1b3652,var(--panel));display:flex;align-items:flex-end;justify-content:center}
+.player-card .foto img{width:100%;height:100%;object-fit:cover;object-position:top}
+.player-card .foto.sin{font-family:'Barlow Condensed';font-size:3rem;color:var(--linea);align-items:center}
+.player-card .info{padding:.75rem}
+.player-card h5{font-size:1.15rem;margin:0 0 .25rem}
+.chip{display:inline-block;font-size:.75rem;padding:.1rem .5rem;border-radius:20px;background:var(--noche);border:1px solid var(--linea);color:var(--apagado);margin:0 .25rem .25rem 0}
+.chip.pos{border-color:var(--rojo);color:var(--tiza)}
+
+/* Modal */
+.mls-modal{background:var(--panel);color:var(--tiza);border:1px solid var(--linea)}
+.mls-modal .modal-title{font-size:2rem}
+.detalle-img{max-width:100%;max-height:260px;object-fit:contain}
+.dato{color:var(--apagado);font-size:.85rem;margin:0}
+.dato+p{margin-bottom:.75rem;font-weight:500}
+.mini{display:flex;align-items:center;gap:.5rem;padding:.4rem .5rem;border-radius:8px;cursor:pointer}
+.mini:hover{background:var(--noche)}
+.mini img{width:36px;height:36px;border-radius:50%;object-fit:cover;background:var(--noche)}
+.descr{color:var(--apagado);font-size:.9rem;max-height:7.5rem;overflow:auto}
